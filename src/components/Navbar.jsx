@@ -34,13 +34,13 @@ const Navbar = () => {
           {/* Menu container */}
           <div className='hidden text-primary py-3 md:flex md:flex-1'>
             <ScrollLink activeClass="text-accent font-bold" to="about" spy={true} smooth={true} offset={-100} duration={500} >
-              <button className='whitespace-nowrap min-w-[150px] hover:font-bold uppercase outline-none'>About Me</button>
+              <button className='whitespace-nowrap min-w-[150px] hover:font-bold text-lg outline-none'>About Me</button>
             </ScrollLink>
             <ScrollLink activeClass="text-accent font-bold" to="projects" spy={true} smooth={true} offset={-100} duration={500} >
-              <button className='whitespace-nowrap min-w-[150px]  hover:font-bold uppercase outline-none'>Projects</button>
+              <button className='whitespace-nowrap min-w-[150px]  hover:font-bold text-lg outline-none'>Projects</button>
             </ScrollLink>
             <ScrollLink activeClass="text-accent font-bold" to="contactme" spy={true} smooth={true} offset={-100} duration={500} >
-              <button className='whitespace-nowrap min-w-[150px]  hover:font-bold uppercase outline-none'>Contact</button>
+              <button className='whitespace-nowrap min-w-[150px]  hover:font-bold text-lg outline-none'>Contact</button>
             </ScrollLink>
           </div>
 
