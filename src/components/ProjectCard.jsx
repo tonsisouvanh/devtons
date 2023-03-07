@@ -41,7 +41,7 @@ const ProjectCard = ({ id, name, desc, imgs, techStack, github, website }) => {
         {/* top div */}
         <div className='flex items-start justify-between'>
           {/* project name */}
-          <div className='bg-highlight font-bold px-3 py-1 rounded-br-md'>
+          <div className='bg-highlight font-bold px-3 py-1 rounded-br-md shadow shadow-gray-500'>
             <h4>{name}</h4>
           </div>
           {/* Link container */}
