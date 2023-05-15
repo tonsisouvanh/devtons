@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <>
       {/* Top Navbar Container */}
-      <nav className='border-b bg-primary border-bColor shadow-md sticky top-0 left-0 z-[100] animate-[fadeTop_0.6s_linear]'>
+      <nav className='border-b bg-primary border-bColor shadow-md shadow-gray-900 sticky top-0 left-0 z-[100] animate-[fadeTop_0.6s_linear]'>
 
         {/* Menu Container */}
         <div className="rounded-div flex items-center justify-between h-[70px]">

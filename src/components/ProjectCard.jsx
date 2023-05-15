@@ -33,7 +33,7 @@ const ProjectCard = ({ id, name, desc, imgs, techStack, github, website }) => {
         }
       }}
       layout
-      className='group relative shadow-lg h-[260px] rounded-md text-white overflow-hidden inline-block sm:h-[380px] md:w-[500px] md:h-[300px]'>
+      className='group relative shadow-md shadow-black h-[260px] rounded-md text-white overflow-hidden inline-block sm:h-[380px] md:w-[500px] md:h-[300px]'>
       {/* <div className='bg-black top-0 left-0 w-full h-full'></div> */}
       <img className='w-full h-full object-cover transition-transform ease-in-out duration-150 group-hover:scale-110' src={imgs[0]} alt="/" />
 

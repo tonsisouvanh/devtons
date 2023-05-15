@@ -9,7 +9,6 @@ import {
   githubWhite,
 } from "../assets/images/idnex";
 import tonsAvatar from "../assets/images/avatar.JPG";
-import blew from "../assets/svg/blew.svg";
 
 // components
 import ProjectCard from "../components/ProjectCard";
@@ -74,11 +73,6 @@ const Home = () => {
                 src={tonsAvatar}
                 alt=""
               />
-              {/* <img
-                className="absolute top-0 left-0 z-[-1] w-28"
-                src={blew}
-                alt=""
-              /> */}
             </div>
 
             {/* Intro Header */}
