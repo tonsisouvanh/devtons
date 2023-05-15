@@ -8,7 +8,7 @@ import {
   twitter,
   githubWhite,
 } from "../assets/images/idnex";
-import tonsAvatar from "../assets/svg/tons.svg";
+import tonsAvatar from "../assets/images/avatar.JPG";
 import blew from "../assets/svg/blew.svg";
 
 // components
@@ -67,18 +67,18 @@ const Home = () => {
             className="flex flex-col mt-16 justify-center items-center space-y-6 md:flex-row md:justify-between"
           >
             {/* Image */}
-            <div className="relative max-w-[250px] sm:max-w-[350px] md:max-w-[400px] animate-[scaleUp_0.5s_linear]">
+            <div className="border-4 border-white shadow-sm shadow-gray-500 relative max-w-[250px] sm:max-w-[350px] md:max-w-[400px] animate-[scaleUp_0.5s_linear]">
               {/* <img className='w-full h-full object-cover' src={me} alt="" /> */}
               <img
                 className="w-full h-full object-cover"
                 src={tonsAvatar}
                 alt=""
               />
-              <img
-                className=" absolute top-0 left-0 z-[-1]"
+              {/* <img
+                className="absolute top-0 left-0 z-[-1] w-28"
                 src={blew}
                 alt=""
-              />
+              /> */}
             </div>
 
             {/* Intro Header */}
@@ -163,12 +163,13 @@ const Home = () => {
               <div className="flex-grow h-[3px] bg-accent"></div>
             </div>
             <p className="text-primary text-center leading-8 sm:text-xl sm:mt-3 sm:leading-10">
-              I'm a Frontend Web Developer building the Front-end of Websites
-              and Web Applications that leads to the success of the overall
-              project. Check out some of my work in Projects section. I really
-              enjoy using Framework like ReactJS for Front-end Web Development.
-              Seeing thing get render in the way i want it to is very satisfying
-              for me. Feel free to Connect or Follow me on my Social Media.
+              I'm a Frontend Web Developer who specializes in building the
+              front-end of websites and web applications, ensuring the success
+              of the overall project. Check out some of my work in the Projects
+              section. I'm passionate about using frameworks like ReactJS for
+              front-end web development, and seeing things rendered exactly as I
+              envisioned is very satisfying for me. Please feel free to connect
+              with me or follow me on my social media.
             </p>
           </section>
 
@@ -192,9 +193,9 @@ const Home = () => {
             {/* project desc */}
             <motion.div variants={DescAnimate} className="mt-4">
               <p className="md:text-lg text-primary">
-                Here you are some of the personal and clients projects that I
-                have created. Most of the projects have been built for practice
-                and school assignment wich focus on front-end
+                Below, you'll find some of my personal and client projects, most
+                of which were created for front-end practice and school
+                assignments
               </p>
             </motion.div>
             {/* project cards container */}
