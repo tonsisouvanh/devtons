@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-
+import svgBackground from "../assets/svg/layered-peaks-haikei.svg";
 // icon / image / svg
 import {
   tiktok,
@@ -28,6 +28,8 @@ import {
   scaleAnimate,
   fadeBottomAnimate,
 } from "../animation/index";
+import DarkModeToggler from "../components/DarkModeToggler";
+import MediaContact from "../components/MediaContact/MediaContact";
 
 const Home = () => {
   const { theme } = useContext(ThemeContext);
@@ -52,18 +54,27 @@ const Home = () => {
 
   return (
     <>
+      <div className="w-full h-screen absolute top-0 left-0 -z-20 hidden lg:flex">
+        <img
+          src={svgBackground}
+          className="w-full h-full object-cover"
+          alt=""
+        />
+      </div>
       <div className="relative">
+        <div className="fixed right-5 bottom-5 z-50">
+          <MediaContact />
+        </div>
         <motion.div
           className="fixed z-[1000] top-0 left-0 right-0 h-[3px] bg-accent opacity-50 origin-left"
           style={{ scaleX: scrollYProgress }}
         />
-        <SocialMedia />
-
+        {/* <SocialMedia /> */}
         <div className="rounded-div relative">
           {/* Main section */}
           <section
             id="about"
-            className="flex flex-col mt-16 justify-center items-center space-y-6 md:flex-row md:justify-between"
+            className="relative flex flex-col pt-16 justify-center items-center space-y-6 md:flex-row md:justify-between"
           >
             {/* Image */}
             <div className="border-4 border-white shadow-sm shadow-gray-500 relative max-w-[250px] sm:max-w-[350px] md:max-w-[400px] animate-[scaleUp_0.5s_linear]">
@@ -144,7 +155,7 @@ const Home = () => {
           </section>
 
           {/* About Me Sections */}
-          <section className="my-16 sm:my-40 animate-[fadeBottom_1s_linear]">
+          <section className="rounded-lg p-2 my-16 sm:my-20 animate-[fadeBottom_1s_linear] md:my-56">
             <div className="flex items-center">
               {/* <!-- The left line --> */}
               <div className="flex-grow h-[3px] bg-accent"></div>
@@ -344,6 +355,10 @@ const Home = () => {
               </motion.button>
             </form>
           </motion.section>
+
+          {/* <div className="bg-white">
+            <DarkModeToggler />
+          </div> */}
         </div>
       </div>
     </>
