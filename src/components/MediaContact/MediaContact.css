@@ -1,7 +1,12 @@
+.cards{
+  width: 40px !important;
+  height: 40px !important;
+}
 .main {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  opacity: 80%;
 }
 
 .up {
@@ -29,8 +34,8 @@
 }
 
 .instagram {
-  margin-top: 1.5em;
-  margin-left: 1.2em;
+  margin-top: 0.2em;
+  margin-left: 0.6em;
   fill: #cc39a4;
 }
 
@@ -47,8 +52,8 @@
 }
 
 .twitter {
-  margin-top: 1.5em;
-  margin-left: 0.9em;
+  margin-top: 0.2em;
+  margin-left: 0.1em;
   fill: #03a9f4;
 }
 
@@ -65,8 +70,8 @@
 }
 
 .github {
-  margin-top: -0.6em;
-  margin-left: 1.2em;
+  margin-top: -0.2em;
+  margin-left: 0.6em;
 }
 
 .card4 {
@@ -82,8 +87,8 @@
 }
 
 .discord {
-  margin-top: -0.9em;
-  margin-left: 0.9em;
+  margin-top: -0.2em;
+  margin-left: 0.1em;
 
   fill: #8c9eff;
 }

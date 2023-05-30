@@ -50,10 +50,10 @@ const ProjectCard = ({ id, name, desc, imgs, techStack, github, website }) => {
               <GoEye onClick={() => setSelect(id)} className='cursor-pointer hover:scale-110 text-[#00FFFF]' />
             </span>
             <a href={github} target='_blank' rel="noreferrer">
-              <AiFillGithub className='cursor-pointer hover:scale-110 text-[#FF6F61]' />
+              <AiFillGithub className='cursor-pointer hover:scale-110' />
             </a>
             <a href={website} target='_blank' rel="noreferrer">
-              <TbWorld className='cursor-pointer hover:scale-110 text-[#98FF98]' />
+              <TbWorld className='cursor-pointer hover:scale-110' />
             </a>
           </div>
         </div>

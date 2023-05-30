@@ -1,6 +1,8 @@
 import React from "react";
 import "./TestComponent.css";
+
 const TestComponent = () => {
+  const text = "DEV T</>NS.";
   return (
     // <div className="container mx-auto bg-green py-40 px-12 text-center">
     //   <a className="text-white text-opacity-30 hover:text-white transition-all duration-300 relative">
@@ -35,7 +37,7 @@ const TestComponent = () => {
     //   </a>
     // </div>
 
-    <button className={`glitch-btn text-black`}>DEVTONS.</button>
+    <button className={`glitch-btn text-black`}>{text}</button>
   );
 };
 

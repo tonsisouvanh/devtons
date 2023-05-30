@@ -74,7 +74,7 @@ const Navbar = () => {
           {/* Menu container */}
 
           <div className="hidden text-primary mx-5 md:flex md:flex-1 space-x-7">
-            {navItems.map((i) => {
+            {navItems.map((i, index) => {
               return (
                 <ScrollLink
                   // activeClass="text-accent font-bold"
@@ -83,6 +83,7 @@ const Navbar = () => {
                   smooth={true}
                   offset={-100}
                   duration={500}
+                  key={index}
                 >
                   <button className="relative group whitespace-nowrap min-w-[100px] py-1 text-base outline-none">
                     {i.text}
@@ -147,7 +148,11 @@ const Navbar = () => {
       </nav>
 
       {/* Bottom Navbar Container */}
-      <div className="text-primary rouded-div bg-primary border-t border-bColor flex items-center justify-around px-3 py-2 fixed w-full left-0 bottom-0 transition-all duration-100 md:bottom-[-400px] z-50">
+      <div
+        className={`text-primary rouded-div ${
+          theme === "light" ? "bg-[#F5F5F5]" : "bg-[#0F1C2E]"
+        } border-t border-bColor flex items-center justify-around px-3 py-2 fixed w-full left-0 bottom-0 transition-all duration-100 md:bottom-[-400px] z-50`}
+      >
         {/* <div className='text-primary flex flex-col items-center cursor-pointer w-[80px]'> */}
         <ScrollLink
           className="flex flex-col items-center cursor-pointer w-[80px]"

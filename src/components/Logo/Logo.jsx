@@ -7,7 +7,7 @@ const Logo = () => {
     <button
       className={`glitch-btn ${
         theme === "light" ? "text-black" : "text-white"
-      } text-black`}
+      } text-black whitespace-nowrap`}
     >
       DEVTONS.
     </button>
