@@ -56,7 +56,7 @@ const Navbar = () => {
         } border-bColor shadow-sm sticky top-0 left-0 z-[100] animate-[fadeTop_0.6s_linear]`}
       >
         {/* Menu Container */}
-        <div className="rounded-div flex items-center justify-between h-[70px]">
+        <div className="rounded-div flex items-center justify-between h-[45px] md:h-[50px]">
           {/* Logo */}
           <div>
             <Link to="/">
@@ -85,7 +85,7 @@ const Navbar = () => {
                   duration={500}
                   key={index}
                 >
-                  <button className="relative group whitespace-nowrap min-w-[100px] py-1 text-base outline-none">
+                  <button className="relative group whitespace-nowrap min-w-[100px] py-1 text-sm outline-none">
                     {i.text}
                     {/* <span className="absolute opacity-0 w-0 h-[2px] bg-white transition-all duration-300 left-0 top-0 group-hover:opacity-100 group-hover:w-full"></span>
                     <span className="absolute opacity-0 w-0 h-[2px] bg-white transition-all duration-300 right-0 bottom-0 group-hover:opacity-100 group-hover:w-full"></span> */}

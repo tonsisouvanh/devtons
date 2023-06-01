@@ -22,7 +22,7 @@ const projectData = [
   {
     id: 1,
     name: "Disney Plus Clone",
-    desc: "This porject was built to focus on front-end with responsive ui, firebase google authentication for login/signin and firestore to store movie data",
+    desc: "Disney Plus clone app built with React.js, Styled Components, Firebase (Firestore & Authentication). Responsive UI, Firebase Google Authentication for login, and Firestore for movie data storage.",
     imgs: [
       "https://res.cloudinary.com/shoppin/image/upload/v1645154746/portfolio/project-image/disney-plus-a_zsms5i.png",
       "https://res.cloudinary.com/shoppin/image/upload/v1645154746/portfolio/project-image/disney-plus-b_cwpk0v.png",
@@ -36,7 +36,7 @@ const projectData = [
   {
     id: 2,
     name: "Netflix Clone",
-    desc: "This porject was built to focus on front-end with mobile/desktop responsive using tailwind css, firebase email and password authentication for login/signin. I choose TMDB api to get all movie data",
+    desc: "Netflix clone app built with React.js, Tailwind CSS, and the TMDB API. Features mobile and desktop responsive design using Tailwind CSS. Implements Firebase email and password authentication for login/signin. Retrieves movie data from the TMDB API.",
     imgs: [
       "https://res.cloudinary.com/shoppin/image/upload/v1664005784/portfolio/project-image/netflix_main_eascrf.png",
       "https://res.cloudinary.com/shoppin/image/upload/v1664005770/portfolio/project-image/netflix_02_kkgo0z.png",

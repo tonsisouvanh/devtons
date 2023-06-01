@@ -1,7 +1,7 @@
 .glitch-btn,
 .glitch-btn::after {
   padding: 10px 30px;
-  font-size: 20px;
+  font-size: 1em;
   border: none;
   border-radius: 5px;
   background-color: transparent;
