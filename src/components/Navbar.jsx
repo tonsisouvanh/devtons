@@ -59,21 +59,19 @@ const Navbar = () => {
         <div className="rounded-div flex items-center justify-between h-[45px] md:h-[50px]">
           {/* Logo */}
           <div>
-            <Link to="/">
-              <Logo />
-              {/* <h1
+            <Logo />
+            {/* <h1
                 className={`text-2xl lg:text-3xl ${
                   theme === "light" ? "text-black" : "text-white"
                 }`}
               >
                 DEVTONS.
               </h1> */}
-            </Link>
           </div>
 
           {/* Menu container */}
 
-          <div className="hidden text-primary mx-5 md:flex md:flex-1 space-x-7">
+          <div className="hidden text-primary ml-12 md:flex md:flex-1 space-x-10">
             {navItems.map((i, index) => {
               return (
                 <ScrollLink
@@ -85,7 +83,7 @@ const Navbar = () => {
                   duration={500}
                   key={index}
                 >
-                  <button className="relative group whitespace-nowrap min-w-[100px] py-1 text-sm outline-none">
+                  <button className="relative group whitespace-nowrap min-w-[100px] py-1 text-[1rem] outline-none">
                     {i.text}
                     {/* <span className="absolute opacity-0 w-0 h-[2px] bg-white transition-all duration-300 left-0 top-0 group-hover:opacity-100 group-hover:w-full"></span>
                     <span className="absolute opacity-0 w-0 h-[2px] bg-white transition-all duration-300 right-0 bottom-0 group-hover:opacity-100 group-hover:w-full"></span> */}

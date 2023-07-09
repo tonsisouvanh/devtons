@@ -20,6 +20,22 @@ import {
 
 const projectData = [
   {
+    id: 5,
+    name: "Vaccine Booking App",
+    desc: "The Vaccine Booking app is an university assignment project in Distributed Application subject.",
+    imgs: [
+      "https://res.cloudinary.com/shoppin/image/upload/v1664009589/portfolio/project-image/vaccine_main_htsrdl.png",
+      "https://res.cloudinary.com/shoppin/image/upload/v1664009589/portfolio/project-image/vaccine_main_htsrdl.png",
+      "https://res.cloudinary.com/shoppin/image/upload/v1664009586/portfolio/project-image/vaccine_02_mfsdvs.png",
+      "https://res.cloudinary.com/shoppin/image/upload/v1664009588/portfolio/project-image/vaccine_03_u1puq0.png",
+      "https://res.cloudinary.com/shoppin/image/upload/v1664009582/portfolio/project-image/vaccine_04_haqxe5.png",
+      "https://res.cloudinary.com/shoppin/image/upload/v1664009583/portfolio/project-image/vaccine_05_mwrvoj.png",
+    ],
+    techStack: "ReactJS, html, css, js, Nodejs, MongoDB, Redux toolkit",
+    github: "https://github.com/tonsisouvanh/vaccine-registration-app ",
+    website: "",
+  },
+  {
     id: 1,
     name: "Disney Plus Clone",
     desc: "Disney Plus clone app built with React.js, Styled Components, Firebase (Firestore & Authentication). Responsive UI, Firebase Google Authentication for login, and Firestore for movie data storage.",
@@ -69,22 +85,7 @@ const projectData = [
     github: "",
     website: "",
   },
-  {
-    id: 5,
-    name: "Vaccine Booking App",
-    desc: "The Vaccine Booking app is an university assignment project in Distributed Application subject.",
-    imgs: [
-      "https://res.cloudinary.com/shoppin/image/upload/v1664009589/portfolio/project-image/vaccine_main_htsrdl.png",
-      "https://res.cloudinary.com/shoppin/image/upload/v1664009589/portfolio/project-image/vaccine_main_htsrdl.png",
-      "https://res.cloudinary.com/shoppin/image/upload/v1664009586/portfolio/project-image/vaccine_02_mfsdvs.png",
-      "https://res.cloudinary.com/shoppin/image/upload/v1664009588/portfolio/project-image/vaccine_03_u1puq0.png",
-      "https://res.cloudinary.com/shoppin/image/upload/v1664009582/portfolio/project-image/vaccine_04_haqxe5.png",
-      "https://res.cloudinary.com/shoppin/image/upload/v1664009583/portfolio/project-image/vaccine_05_mwrvoj.png",
-    ],
-    techStack: "ReactJS, html, css, js, Nodejs, MongoDB, Redux toolkit",
-    github: "https://github.com/tonsisouvanh/vaccine-registration-app ",
-    website: "",
-  },
+
   {
     id: 6,
     name: "Student Management App",
@@ -92,7 +93,7 @@ const projectData = [
     imgs: [
       "https://res.cloudinary.com/shoppin/image/upload/v1678179868/portfolio/project-image/vnustudentB_e5kydy.png",
       "https://res.cloudinary.com/shoppin/image/upload/v1678179868/portfolio/project-image/vnustudentA_lxgbaj.png",
-      "https://res.cloudinary.com/shoppin/image/upload/v1678179868/portfolio/project-image/vnustudentC_sjwlz9.png"
+      "https://res.cloudinary.com/shoppin/image/upload/v1678179868/portfolio/project-image/vnustudentC_sjwlz9.png",
     ],
     techStack:
       "Frontend: React.js, Backend: Firebase, State managment: Redux toolkit, API Call: Async thunck",
