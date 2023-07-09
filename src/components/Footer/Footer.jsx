@@ -5,12 +5,11 @@ import {
   AiFillLinkedin,
   AiFillGithub,
 } from "../../assets/icon/IconLibrary";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Footer = ({ theme }) => {
   return (
     <div className="footer-wrapper">
-      <div className="link-list">
+      <div className="link-list ">
         {/* <div className="link-column">
           <h4 className="link-title">Call</h4>
           <a href="tel:314-343-3432" className="link-item">
@@ -18,28 +17,47 @@ const Footer = ({ theme }) => {
           </a>
         </div> */}
         <div className="link-column">
-          <h4 className="link-title">Email</h4>
-          <a href="mailto:contact@jsmastery.com" className="link-item">
+          <h4
+            className={`link-title ${
+              theme === "light" ? "text-black" : "text-gray-400"
+            }`}
+          >
+            Email
+          </h4>
+          <a
+            href="mailto:contact@jsmastery.com"
+            className={`link-item ${
+              theme === "light" ? "text-black" : "text-gray-400"
+            }`}
+          >
             tonsisouvanh7@gmail.com
           </a>
         </div>
       </div>
       <div className="social-icons-container">
         <div className="company-container">
-          <p className="slogan">
-            Copyright © <span>{new Date().getFullYear()}</span> by DevTons | Made
-            by DevTons
+          <p
+            className={`slogan ${
+              theme === "light" ? "text-black" : "text-gray-400"
+            }`}
+          >
+            Copyright © <span>{new Date().getFullYear()}</span> by DevTons |
+            Made by DevTons
           </p>
         </div>
-        <div className="social-container">
+        <div
+          className={`social-container ${
+            theme === "light" ? "text-black" : "text-gray-400"
+          }`}
+        >
           <a href="https://google.com" className="social-icons">
-            <AiFillGithub className="text-white" size="3rem" />
+            <AiFillGithub className="" size="3rem" />
           </a>
           <a href="https://google.com" className="social-icons">
-            <AiFillLinkedin className="text-white" size="3rem" />
+            <AiFillLinkedin className="" size="3rem" />
           </a>
           <a href="https://google.com" className="social-icons">
-            <AiFillInstagram className="text-white" size="3rem" />
+            <AiFillInstagram className="" size="3rem" />
           </a>
         </div>
       </div>

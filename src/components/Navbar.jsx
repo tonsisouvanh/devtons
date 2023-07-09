@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { AiOutlineFolder, AiOutlineMessage } from "react-icons/ai";
 import { MdFaceRetouchingNatural } from "react-icons/md";
 
-import { Link } from "react-router-dom";
 // import logoLight from "../assets/images/devtons-light.png";
 // import logoDark from "../assets/images/devtons-dark.png";
 // import ThemeToggle from "./ThemToggle";
