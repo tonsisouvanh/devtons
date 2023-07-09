@@ -32,7 +32,7 @@ const projectData = [
       "https://res.cloudinary.com/shoppin/image/upload/v1664009583/portfolio/project-image/vaccine_05_mwrvoj.png",
     ],
     techStack: "ReactJS, html, css, js, Nodejs, MongoDB, Redux toolkit",
-    github: "https://github.com/tonsisouvanh/vaccine-registration-app ",
+    github: "https://github.com/tonsisouvanh/vaccine-registration-app",
     website: "",
   },
   {
