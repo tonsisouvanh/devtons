@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { projectData } from "../../data/index";
+import React, { useContext, useState } from "react";
 
 import {
   HiChevronDoubleDown,
@@ -14,13 +13,16 @@ import {
   scaleAnimate,
 } from "../../animation/index";
 
-const Projects = ({ theme }) => {
-  const [loadmoreClick, setLoadmoreClick] = useState(true);
+import { ProjectsContext } from "../../context/ProjectsContext";
 
+const Projects = ({ theme }) => {
+  const { data, isLoading } = useContext(ProjectsContext);
+  const [loadmoreClick, setLoadmoreClick] = useState(true);
   const [noOfItems, setNoOfItems] = useState(4);
 
+
   const loadMore = () => {
-    let length = projectData.length;
+    let length = data?.length;
     if (noOfItems < length) {
       setNoOfItems(noOfItems + (length - noOfItems));
     }
@@ -39,7 +41,11 @@ const Projects = ({ theme }) => {
     else showLess();
   };
 
-  const sliceItems = projectData.slice(0, noOfItems);
+  const sliceItems = data.slice(0, noOfItems);
+
+  if (isLoading) {
+    return <h1>Loading data</h1>;
+  }
 
   return (
     <>
@@ -83,18 +89,22 @@ const Projects = ({ theme }) => {
           className="flex flex-col mt-10 gap-5 md:flex-row md:flex-wrap md:justify-center md:gap-10"
         >
           <AnimatePresence>
-            {sliceItems.map((item) => (
-              <ProjectCard
-                key={item.id}
-                id={item.id}
-                name={item.name}
-                desc={item.desc}
-                imgs={item.imgs}
-                techStack={item.techStack}
-                github={item.github}
-                website={item.website}
-              />
-            ))}
+            {sliceItems && sliceItems.length > 0 ? (
+              sliceItems.map((item) => (
+                <ProjectCard
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  desc={item.desc}
+                  imgs={item.images}
+                  techStack={item.techStack}
+                  github={item.github}
+                  website={item.website}
+                />
+              ))
+            ) : (
+              <p>No projects to display</p>
+            )}
           </AnimatePresence>
         </motion.div>
         <motion.div

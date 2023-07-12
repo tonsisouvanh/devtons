@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./Submit.css";
 import { ThemeContext } from "../../context/ThemeContext";
-const Submit = () => {
+const Submit = ({ isSent }) => {
   const { theme } = useContext(ThemeContext);
   const darkTheme = "bg-black text-white";
   const lightTheme = "bg-white text-black";
@@ -9,7 +9,10 @@ const Submit = () => {
   return (
     <div className="SubmitWrap">
       <button
-        className={`SubmitButton ${theme === "light" ? darkTheme : lightTheme}`}
+        disabled={isSent ? false : true}
+        className={`${
+          isSent ? "cursor-pointer" : "cursor-not-allowed"
+        }  SubmitButton ${theme === "light" ? darkTheme : lightTheme}`}
       >
         SEND
       </button>

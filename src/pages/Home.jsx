@@ -40,7 +40,7 @@ const Home = () => {
           <About theme={theme} />
 
           {/* Experience Section */}
-          <Experience theme={theme} />
+          {/* <Experience theme={theme} /> */}
 
           {/* Projects Section */}
           <Projects theme={theme} />

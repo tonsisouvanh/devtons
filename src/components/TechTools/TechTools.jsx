@@ -37,9 +37,9 @@ const TechTools = ({theme}) => {
                 <motion.div
                   variants={scaleAnimate}
                   key={item.id}
-                  className="w-full flex flex-col flex-wrap items-center p-5 rounded-xl gap-y-6 md:justify-between lg:min-h-full lg:justify-between"
+                  className={`"w-full ${theme === 'dark' && 'bg-gray-300'} flex flex-col flex-wrap items-center p-5 rounded-xl gap-y-6 md:justify-between lg:min-h-full lg:justify-between"`}
                 >
-                  <h4 className="text-primary font-bold text-xl md:text-2xl">
+                  <h4 className=" font-bold text-xl md:text-2xl">
                     {item.title}
                   </h4>
                   <div className="flex p-2 rounded-md justify-center flex-wrap gap-x-8 gap-y-6 max-w-[250px]">
@@ -52,7 +52,7 @@ const TechTools = ({theme}) => {
                       />
                     ))}
                   </div>
-                  <p className="text-center text-primary md:text-lg">
+                  <p className="text-center  md:text-lg">
                     {item.desc}
                   </p>
                 </motion.div>

@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import { ThemeProvider } from "./context/ThemeContext";
 import Spinner from "./components/Spinner";
 import { useEffect, useState } from "react";
+import { ProjectsProvider } from "./context/ProjectsContext";
+import Test from "./pages/Test";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -15,20 +17,23 @@ function App() {
   }, []);
   return (
     <>
-      <ThemeProvider>
-        {loading ? (
-          <div className="w-sceen h-screen flex items-center justify-center">
-            <Spinner size={90} />
-          </div>
-        ) : (
-          <BrowserRouter>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-            </Routes>
-          </BrowserRouter>
-        )}
-      </ThemeProvider>
+      <ProjectsProvider>
+        <ThemeProvider>
+          {loading ? (
+            <div className="w-sceen h-screen flex items-center justify-center">
+              <Spinner size={90} />
+            </div>
+          ) : (
+            <BrowserRouter>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/test" element={<Test />}></Route>
+              </Routes>
+            </BrowserRouter>
+          )}
+        </ThemeProvider>
+      </ProjectsProvider>
     </>
   );
 }
