@@ -6,6 +6,7 @@ import Spinner from "./components/Spinner";
 import { useEffect, useState } from "react";
 import { ProjectsProvider } from "./context/ProjectsContext";
 import Test from "./pages/Test";
+import Testimonial from "./pages/Testimonial";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -28,7 +29,8 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path="/" element={<Home />}></Route>
-                <Route path="/test" element={<Test />}></Route>
+                {/* <Route path="/test" element={<Test />}></Route> */}
+                {/* <Route path="/testimonial" element={<Testimonial />}></Route> */}
               </Routes>
             </BrowserRouter>
           )}

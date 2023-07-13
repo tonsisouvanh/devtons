@@ -37,25 +37,25 @@ const Home = () => {
           <Hero theme={theme} />
 
           {/* About Me Sections */}
-          <About theme={theme} />
+          {/* <About theme={theme} /> */}
 
           {/* Experience Section */}
           {/* <Experience theme={theme} /> */}
 
           {/* Projects Section */}
-          <Projects theme={theme} />
+          {/* <Projects theme={theme} /> */}
 
           {/* Tech Tools Section */}
-          <TechTools theme={theme} />
+          {/* <TechTools theme={theme} /> */}
 
           {/* Contact Section */}
-          <Contact theme={theme} />
+          {/* <Contact theme={theme} /> */}
 
           {/* <div className="bg-white">
             <DarkModeToggler />
           </div> */}
 
-          <Footer theme={theme} />
+          {/* <Footer theme={theme} /> */}
         </div>
       </div>
     </>
