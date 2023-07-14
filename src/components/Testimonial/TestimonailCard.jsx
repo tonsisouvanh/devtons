@@ -1,25 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const TestimonialCard = ({ testimonial }) => {
+  const { theme } = useContext(ThemeContext);
   const { name, company, category, content, rating } = testimonial;
 
   return (
-    <div className="bg-transparent shadow-md p-6 rounded-md w-full h-full">
-      <div className="flex items-center gap-2">
+    <div
+      className={`${
+        theme === "dark" ? "bg-gray-800" : "bg-gray-300"
+      } shadow-md p-6 rounded-md w-full h-fit flex flex-col gap-3`}
+    >
+      <div className="flex items-center gap-4">
         <img
-          className="w-10 h-10 rounded-full"
-          src="https://pixlr.com/studio/template/6264364c-b8cc-4f4f-92d8-28c69a2b756w/thumbnail.webp"
+          className="w-10 h-10 rounded-md"
+          src="https://images.squarespace-cdn.com/content/v1/5446f93de4b0a3452dfaf5b0/1626904421257-T6I5V5IQ4GI2SJ8EU82M/Above+Avalon+Neil+Cybart"
           alt=""
         />
-        <h3 className="text-lg font-bold mb-2 text-primary">{name}</h3>
+        <div className=" text-sm md:text-lg">
+          <h3 className="font-bold text-primary">{name}</h3>
+          <p className="text-primary ">{company}</p>
+        </div>
       </div>
-      <p className="text-gray-500 mb-2">{company}</p>
-      <p className="text-gray-600 mb-4">{content}</p>
-      <div className="flex items-center">
-        <span className="text-yellow-500 text-lg mr-1">
-          {"★".repeat(Math.floor(rating))}
-        </span>
-        <span className="text-gray-400 text-sm">{rating.toFixed(1)}</span>
+      <p className="text-primary mb-4 text-sm md:text-lg font-[200]">
+        {content}
+      </p>
+      <div className=" text-gray-500 text-sm md:text-lg items-center">
+        {Date().toString().slice(0, 15)}
       </div>
     </div>
   );

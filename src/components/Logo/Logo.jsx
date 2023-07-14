@@ -7,21 +7,13 @@ const Logo = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <>
-      {/* <button
-        className={`flex items-center glitch-btn ${
-          theme === "light" ? "text-black" : "text-white"
-        } text-black whitespace-nowrap`}
-      >
-        DEVTONS.
-      </button> */}
-
       <Link
         to="/"
         className={`flex items-center ${
           theme === "light" ? "text-black" : "text-white"
-        } text-black whitespace-nowrap`}
+        }  whitespace-nowrap text-xl`}
       >
-        <FaLaptopCode className="text-primary text-xl mr-1" />
+        <FaLaptopCode className="text-primary text-3xl mr-1" />
         DEVTONS.
       </Link>
     </>

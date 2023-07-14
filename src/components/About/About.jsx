@@ -29,7 +29,7 @@ const About = ({ theme }) => {
             {/* <div className="flex-grow h-[3px] bg-accent"></div> */}
           </div>
           <h2
-            className={`text-2xl mt-5 mb-2 font-bold text-left w-full mx-3 sm:text-4xl text-transparent bg-clip-text text-center ${
+            className={`text-2xl mt-5 mb-2 font-bold w-full  sm:text-4xl text-transparent bg-clip-text text-center ${
               theme === "light"
                 ? "bg-gradient-to-r from-black to-gray-900"
                 : "bg-gradient-to-r from-white to-gray-400"

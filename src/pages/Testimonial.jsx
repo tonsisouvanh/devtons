@@ -1,61 +1,20 @@
-import React, { useState } from "react";
-import TestimonialCard from "../components/Testimonial/TestimonailCard";
+import React, { useContext, useEffect, useState } from "react";
 import TestimonialFilter from "../components/Testimonial/TestimonialFilter";
 import TestimonialSlider from "../components/Testimonial/TestimonialSlider";
+import { ThemeContext } from "../context/ThemeContext";
+import { categories, testimonialsData } from "../data/index";
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
+
 const Testimonial = () => {
-  const categories = [
-    "Web Development",
-    "Customer Service",
-    "Graphic Design",
-    "Product Quality",
-  ];
-  const [testimonials, setTestimonials] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      company: "ABC Inc.",
-      category: "Web Development",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      rating: 4.5,
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      company: "XYZ Corp.",
-      category: "Graphic Design",
-      content:
-        "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-      rating: 5.0,
-    },
-    {
-      id: 3,
-      name: "Sarah Johnson",
-      company: "Design Studio",
-      category: "Graphic Design",
-      content:
-        "Vivamus vestibulum, tellus in tincidunt varius, sapien massa tempus est, non vestibulum mauris metus sit amet ligula.",
-      rating: 4.2,
-    },
-    {
-      id: 4,
-      name: "Michael Anderson",
-      company: "Tech Solutions",
-      category: "Web Development",
-      content:
-        "Sed feugiat, magna at feugiat vehicula, lacus neque scelerisque quam, at gravida neque dolor sed magna.",
-      rating: 4.8,
-    },
-    {
-      id: 5,
-      name: "Emily Wilson",
-      company: "Marketing Agency",
-      category: "Marketing",
-      content:
-        "Cras ac magna id enim pulvinar ullamcorper. Nam gravida diam non risus luctus, vel iaculis lectus bibendum.",
-      rating: 4.6,
-    },
-    // Add more testimonials...
-  ]);
+  const { theme } = useContext(ThemeContext);
+
+  const location = useLocation();
+  const segments = location.pathname
+    .split("/")
+    .filter((segment) => segment !== "");
+
+  const [testimonials, setTestimonials] = useState(testimonialsData);
 
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -70,44 +29,53 @@ const Testimonial = () => {
           (testimonial) => testimonial.category === selectedCategory
         );
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <div className="py-20">
-      <div className="rounded-div flex flex-col gap-10">
-        <div className="text-center text-md">
-          <h1 className="font-bold mb-4 text-primary ">
+    <div className="py-10 md:py-12 lg:py-24">
+      <div className="rounded-div flex flex-col gap-7 md:gap-14">
+        <div className="bg-transparent">
+          <p className="text-gray-600">
+            <Link to="/" className="text-primary hover:underline">
+              HOME
+            </Link>
+            {segments.map((segment, index) => (
+              <span key={segment}>
+                <span className="mx-2"> / </span>
+                <Link
+                  to={`/${segments.slice(0, index + 1).join("/")}`}
+                  className="uppercase text-accent hover:underline"
+                >
+                  {segment}
+                </Link>
+              </span>
+            ))}
+          </p>
+        </div>
+
+        <div className="space-y-5 text-center">
+          <h1 className="text-2xl font-[500] text-primary md:text-4xl lg:text-5xl">
             Friendship and collaboration at its finest
           </h1>
-          <h1 className="font-bold mb-4 text-primary ">
+          <h1
+            className={`bg-clip-text text-transparent ${
+              theme === "light"
+                ? "bg-gradient-to-r from-black to-gray-900"
+                : "bg-gradient-to-r from-white to-gray-400"
+            } text-center text-xl font-[400] md:text-3xl lg:text-4xl`}
+          >
             Hear what they have to say
           </h1>
         </div>
+
         <TestimonialFilter
-          categories={[
-            "All",
-            "Web Development",
-            "Graphic Design",
-            "Customer Service",
-          ]}
+          categories={categories}
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
         />
 
         <TestimonialSlider testimonials={filteredTestimonials} />
-
-        {/* Testimonial pagination */}
-        {/* Implement pagination component to display testimonials on different pages */}
-
-        {/* Testimonial rating system */}
-        {/* Add a rating component to allow users to rate testimonials */}
-
-        {/* Testimonial author details */}
-        {/* Add author details like profile picture, job title, location, social media links */}
-
-        {/* Testimonial tags or categories */}
-        {/* Display tags or categories associated with testimonials */}
-
-        {/* Additional content or components */}
-        {/* Add any additional content or components specific to your testimonial page */}
       </div>
     </div>
   );

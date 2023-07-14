@@ -37,7 +37,7 @@ const TechTools = ({theme}) => {
                 <motion.div
                   variants={scaleAnimate}
                   key={item.id}
-                  className={`"w-full ${theme === 'dark' && 'bg-gray-300'} flex flex-col flex-wrap items-center p-5 rounded-xl gap-y-6 md:justify-between lg:min-h-full lg:justify-between"`}
+                  className={`"w-full ${theme === 'dark' && 'bg-gray-400'} flex flex-col flex-wrap items-center p-5 rounded-xl gap-y-6 md:justify-between lg:min-h-full lg:justify-between"`}
                 >
                   <h4 className=" font-bold text-xl md:text-2xl">
                     {item.title}

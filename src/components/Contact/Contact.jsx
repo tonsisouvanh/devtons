@@ -17,10 +17,10 @@ const Contact = ({ theme }) => {
     setIsSent(false);
     emailjs
       .sendForm(
-        "service_myp4k1k",
-        "template_sqky4nl",
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
         form.current,
-        "-61bbuIF5AQsxexKZ"
+        process.env.REACT_APP_USER_ID
       )
       .then(
         (result) => {
@@ -33,9 +33,7 @@ const Contact = ({ theme }) => {
         },
         (error) => {
           console.log(error.text);
-          toast.error("Sending email fail!", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
+          toast.error("Sending email fail!");
           setIsSent(true);
         }
       );
@@ -43,7 +41,18 @@ const Contact = ({ theme }) => {
 
   return (
     <>
-      <ToastContainer></ToastContainer>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <motion.section
         initial={"offscreen"}
         whileInView={"onscreen"}
@@ -51,36 +60,36 @@ const Contact = ({ theme }) => {
         transition={{ staggerChildren: 0.1 }}
         id="contactme"
         // className="rounded-div mb-80 md:mb-96 animate-fade-in-from-right"
-        className="rounded-div pt-16 mb-32 md:mb-66 animate-fade-in-from-right"
+        className="rounded-div md:mb-66 animate-fade-in-from-right mb-32 pt-16"
       >
         <motion.div variants={HeaderAnimate} className="flex items-center">
           <h2
-            className={`text-transparent bg-clip-text ${
+            className={`bg-clip-text text-transparent ${
               theme === "light"
                 ? "bg-gradient-to-r from-black to-gray-900"
                 : "bg-gradient-to-r from-white to-gray-400"
-            }  text-2xl font-bold text-center sm:text-4xl mr-3`}
+            }  mr-3 text-center text-2xl font-bold sm:text-4xl`}
           >
             Contact
           </h2>
           {/* <!-- The right line --> */}
-          <div className="flex-grow h-[6px] rounded-full bg-gradient-to-r from-[#945DD6] via-[#13ADC7] to-[#F46737]"></div>
+          <div className="h-[6px] flex-grow rounded-full bg-gradient-to-r from-[#945DD6] via-[#13ADC7] to-[#F46737]"></div>
         </motion.div>
         {/* form container */}
         <form
           ref={form}
           onSubmit={sendEmail}
-          className="flex flex-col gap-y-5 mt-4 md:gap-y-8"
+          className="mt-4 flex flex-col gap-y-5 md:gap-y-8"
         >
-          <motion.div className="flex flex-col gap-4 md:flex-row md:gap-10  items-center justify-between">
+          <motion.div className="flex flex-col items-center justify-between gap-4  md:flex-row md:gap-10">
             {/* Name div */}
             <motion.div
               variants={fadeBottomAnimate}
-              className="text-primary space-y-1 w-full"
+              className="w-full space-y-1 text-primary"
             >
               <label className="md:text-xl">Name</label>
               <input
-                className="w-full text-gray-700 rounded-md flex flex-col px-2 py-2 bg-gray-200 transition-all duration-300 hover:shadow-md outline-none"
+                className="flex w-full flex-col rounded-md bg-gray-200 px-2 py-2 text-gray-700 outline-none transition-all duration-300 hover:shadow-md"
                 type="text"
                 placeholder="Enter your name"
                 required
@@ -90,11 +99,11 @@ const Contact = ({ theme }) => {
             {/* Email div */}
             <motion.div
               variants={fadeBottomAnimate}
-              className="text-primary space-y-1 w-full"
+              className="w-full space-y-1 text-primary"
             >
               <label className="md:text-xl">Email</label>
               <input
-                className="w-full text-gray-700 rounded-md flex flex-col px-2 py-2 bg-gray-200 transition-all duration-300 hover:shadow-md outline-none"
+                className="flex w-full flex-col rounded-md bg-gray-200 px-2 py-2 text-gray-700 outline-none transition-all duration-300 hover:shadow-md"
                 type="email"
                 placeholder="Enter your email"
                 required
@@ -105,11 +114,11 @@ const Contact = ({ theme }) => {
           {/* Message div */}
           <motion.div
             variants={fadeBottomAnimate}
-            className="text-primary space-y-1"
+            className="space-y-1 text-primary"
           >
             <label className="md:text-xl">Message</label>
             <textarea
-              className="w-full text-gray-700 h-[150px] rounded-md flex flex-col px-2 py-2 bg-gray-200 transition-all duration-300 hover:shadow-md outline-none"
+              className="flex h-[150px] w-full flex-col rounded-md bg-gray-200 px-2 py-2 text-gray-700 outline-none transition-all duration-300 hover:shadow-md"
               type="textarea"
               placeholder="Enter your message"
               required

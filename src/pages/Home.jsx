@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-
+import React, { useContext, useEffect, useState } from "react";
 // components
 import SocialMedia from "../components/SocialMedia";
 
@@ -13,49 +12,44 @@ import About from "../components/About/About";
 import Projects from "../components/Projects/Projects";
 import TechTools from "../components/TechTools/TechTools";
 import Contact from "../components/Contact/Contact";
-import Experience from "../components/Experience/Experience";
-// import Experience from "../components/Experience/Experience";
-// import DarkModeToggler from "../components/DarkModeToggler";
-// import MediaContact from "../components/MediaContact/MediaContact";
+import TestimonialSection from "../components/Testimonial/TestimonialSection";
+import ScrollToTopButton from "../components/ScrollToTop";
 const Home = () => {
   const { theme } = useContext(ThemeContext);
-  // const { scrollYProgress } = useScroll();
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
+  }, []);
 
   return (
     <>
       <div className="relative">
-        {/* <div className="fixed right-5 bottom-5 z-50 hidden md:flex">
-          <MediaContact />
-        </div> */}
-        <motion.div
-          className="fixed z-[1000] top-0 left-0 right-0 h-[3px] bg-accent opacity-50 origin-left"
-          // style={{ scaleX: scrollYProgress }}
-        />
+        <ScrollToTopButton />
+        <motion.div className="fixed top-0 left-0 right-0 z-[1000] h-[3px] origin-left bg-accent opacity-50" />
         <SocialMedia />
         <div>
           {/* hero section */}
           <Hero theme={theme} />
 
           {/* About Me Sections */}
-          {/* <About theme={theme} /> */}
-
-          {/* Experience Section */}
-          {/* <Experience theme={theme} /> */}
+          <About theme={theme} />
 
           {/* Projects Section */}
-          {/* <Projects theme={theme} /> */}
+          <Projects theme={theme} />
 
           {/* Tech Tools Section */}
-          {/* <TechTools theme={theme} /> */}
+          <TechTools theme={theme} />
+
+          {/* Testimonial section */}
+          <TestimonialSection theme={theme} />
 
           {/* Contact Section */}
-          {/* <Contact theme={theme} /> */}
+          <Contact theme={theme} />
 
           {/* <div className="bg-white">
             <DarkModeToggler />
           </div> */}
 
-          {/* <Footer theme={theme} /> */}
+          <Footer theme={theme} />
         </div>
       </div>
     </>

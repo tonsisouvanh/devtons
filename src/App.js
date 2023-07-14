@@ -29,8 +29,8 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path="/" element={<Home />}></Route>
-                {/* <Route path="/test" element={<Test />}></Route> */}
-                {/* <Route path="/testimonial" element={<Testimonial />}></Route> */}
+                <Route path="/test" element={<Test />}></Route>
+                <Route path="/testimonial" element={<Testimonial />}></Route>
               </Routes>
             </BrowserRouter>
           )}

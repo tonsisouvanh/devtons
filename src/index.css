@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
 :root {
   @apply bg-primary font-ubuntu;
 }
@@ -12,13 +14,13 @@
 }
 
 .dark {
-  --color-bg-primary: #0F1624;
+  --color-bg-primary: #0f1624;
   --color-text-primary: #dbdbdb;
-  --color-text-secondary: #64FFDA;
-  --color-text-accent: #64FFDA;
+  --color-text-secondary: #64ffda;
+  --color-text-accent: #64ffda;
   --color-bg-input: #4a5361;
   --color-bg-button: #81e6d9;
-  --color-border-primary: #0F1624;
+  --color-border-primary: #0f1624;
   --color-hightlight: #00b98e;
 }
 
@@ -26,10 +28,33 @@
   --color-bg-primary: #ffffff;
   --color-text-primary: #2d3748;
   --color-text-secondary: #4a5568;
-  --color-text-accent: #00B0FF;
+  --color-text-accent: #00b0ff;
   --color-bg-input: #edf2f7;
   --color-bg-button: #2b6cb0;
   --color-border-primary: #dfdfdf;
 
-  --color-hightlight: #00B0FF;
+  --color-hightlight: #00b0ff;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

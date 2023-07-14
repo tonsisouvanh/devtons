@@ -41,6 +41,38 @@ const navItems = [
     offset: -100,
     duration: 500,
   },
+  {
+    activeClass: "text-accent font-bold",
+    to: "testimonial",
+    text: "Testimonial",
+    spy: true,
+    smooth: true,
+    offset: -100,
+    duration: 500,
+  },
+];
+
+const mobileNavItems = [
+  {
+    icon: <MdFaceRetouchingNatural size={20} />,
+    text: "About Me",
+    scrollLink: "about",
+  },
+  {
+    icon: <AiOutlineFolder size={20} />,
+    text: "Projects",
+    scrollLink: "projects",
+  },
+  {
+    icon: <AiOutlineMessage size={20} />,
+    text: "Contact",
+    scrollLink: "contactme",
+  },
+  {
+    icon: <AiOutlineMessage size={20} />,
+    text: "Testimonial",
+    scrollLink: "testimonial",
+  },
 ];
 
 const Navbar = () => {
@@ -50,27 +82,19 @@ const Navbar = () => {
     <>
       {/* Top Navbar Container */}
       <nav
-        className={`border-b ${
+        className={`border-b py-2 ${
           theme === "light" ? "bg-[#F5F5F5]" : "bg-[#0F1C2E]"
-        } border-bColor shadow-sm sticky top-0 left-0 z-[100] animate-[fadeTop_0.6s_linear]`}
+        } sticky top-0 left-0 z-[100] animate-[fadeTop_0.6s_linear] border-bColor shadow-sm`}
       >
         {/* Menu Container */}
-        <div className="rounded-div flex items-center justify-between h-[45px] md:h-[50px]">
+        <div className="rounded-div flex h-[45px] items-center justify-between md:h-[50px]">
           {/* Logo */}
           <div>
             <Logo />
-            {/* <h1
-                className={`text-2xl lg:text-3xl ${
-                  theme === "light" ? "text-black" : "text-white"
-                }`}
-              >
-                DEVTONS.
-              </h1> */}
           </div>
 
           {/* Menu container */}
-
-          <div className="hidden text-primary ml-12 md:flex md:flex-1 space-x-10">
+          <div className="ml-12 hidden space-x-10 text-primary md:flex md:flex-1">
             {navItems.map((i, index) => {
               return (
                 <ScrollLink
@@ -82,58 +106,17 @@ const Navbar = () => {
                   duration={500}
                   key={index}
                 >
-                  <button className="relative group whitespace-nowrap min-w-[100px] py-1 text-[1rem] outline-none">
+                  <button className="group relative min-w-[100px] whitespace-nowrap py-1 text-[1rem] outline-none">
                     {i.text}
-                    {/* <span className="absolute opacity-0 w-0 h-[2px] bg-white transition-all duration-300 left-0 top-0 group-hover:opacity-100 group-hover:w-full"></span>
-                    <span className="absolute opacity-0 w-0 h-[2px] bg-white transition-all duration-300 right-0 bottom-0 group-hover:opacity-100 group-hover:w-full"></span> */}
                     <span
-                      className={`absolute w-full h-[2px] left-0 top-0 ${
+                      className={`absolute left-0 top-0 h-[2px] w-full ${
                         theme === "light" ? "bg-[#00B0FF]" : "bg-[#64FFDA]"
-                      }  opacity-30 transition-all duration-300 transform group-hover:h-[100%]`}
+                      }  transform opacity-30 transition-all duration-300 group-hover:h-[100%]`}
                     ></span>
                   </button>
                 </ScrollLink>
               );
             })}
-
-            {/* <ScrollLink
-              activeClass="text-accent font-bold"
-              to="about"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={500}
-            >
-              <button className="relative group whitespace-nowrap min-w-[100px] text-base outline-none">
-                About Me
-                <span className="absolute opacity-0 w-0 h-[2px] bg-white transition-all duration-300 left-0 top-0 group-hover:opacity-100 group-hover:w-full"></span>
-                <span className="absolute opacity-0 w-0 h-[2px] bg-white transition-all duration-300 right-0 bottom-0 group-hover:opacity-100 group-hover:w-full"></span>
-              </button>
-            </ScrollLink>
-            <ScrollLink
-              activeClass="text-accent font-bold"
-              to="projects"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={500}
-            >
-              <button className="whitespace-nowrap min-w-[100px] text-base outline-none">
-                Projects
-              </button>
-            </ScrollLink>
-            <ScrollLink
-              activeClass="text-accent font-bold"
-              to="contactme"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={500}
-            >
-              <button className="whitespace-nowrap min-w-[100px] text-base outline-none">
-                Contact
-              </button>
-            </ScrollLink> */}
           </div>
 
           {/* Theme Toggle */}
@@ -146,54 +129,25 @@ const Navbar = () => {
 
       {/* Bottom Navbar Container */}
       <div
-        className={`text-primary rouded-div ${
+        className={`rouded-div text-primary ${
           theme === "light" ? "bg-[#F5F5F5]" : "bg-[#0F1C2E]"
-        } border-t border-bColor flex items-center justify-around px-3 py-2 fixed w-full left-0 bottom-0 transition-all duration-100 md:bottom-[-400px] z-50`}
+        } fixed left-0 bottom-0 z-50 flex w-full items-center justify-around border-t border-bColor px-3 py-2 transition-all duration-100 md:bottom-[-400px]`}
       >
-        {/* <div className='text-primary flex flex-col items-center cursor-pointer w-[80px]'> */}
-        <ScrollLink
-          className="flex flex-col items-center cursor-pointer w-[80px]"
-          activeClass="text-accent font-bold"
-          to="about"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-        >
-          <MdFaceRetouchingNatural size={20} />
-          <span className="text-sm">About Me</span>
-        </ScrollLink>
-        {/* </div> */}
-
-        {/* <div className='text-primary flex flex-col items-center cursor-pointer w-[80px]'> */}
-        <ScrollLink
-          className="flex flex-col items-center cursor-pointer w-[80px]"
-          activeClass="text-accent font-bold"
-          to="projects"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-        >
-          <AiOutlineFolder size={20} />
-          <span className="text-sm">Projects</span>
-        </ScrollLink>
-        {/* </div> */}
-
-        {/* <div className='text-primary flex flex-col items-center cursor-pointer w-[80px]'> */}
-        <ScrollLink
-          className="flex flex-col items-center cursor-pointer w-[80px]"
-          activeClass="text-accent font-bold"
-          to="contactme"
-          spy={true}
-          smooth={true}
-          offset={-100}
-          duration={500}
-        >
-          <AiOutlineMessage size={20} />
-          <span className="text-sm">Contact</span>
-        </ScrollLink>
-        {/* </div> */}
+        {mobileNavItems.map((item, index) => (
+          <ScrollLink
+            key={index}
+            className="flex w-[80px] cursor-pointer flex-col items-center"
+            activeClass="text-accent font-bold"
+            to={item.scrollLink}
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+          >
+            {item.icon}
+            <span className="text-sm">{item.text}</span>
+          </ScrollLink>
+        ))}
       </div>
     </>
   );

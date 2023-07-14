@@ -1,17 +1,20 @@
 import React from "react";
 
-const TestimonialFilter = ({ categories, selectedCategory, onSelectCategory }) => {
+const TestimonialFilter = ({
+  categories,
+  selectedCategory,
+  onSelectCategory,
+}) => {
   return (
-    <div className="flex gap-4 mb-4">
-      <span className="text-primary">Filter by category:</span>
+    <div className="flex items-center relative gap-4 mb-4 overflow-x-auto pb-2">
       {categories.map((category) => (
         <button
           key={category}
-          className={`${
+          className={`text-sm md:text-lg outline-none ${
             selectedCategory === category
-              ? "bg-blue-500 text-white"
+              ? "bg-cyan-700 text-white"
               : "bg-gray-200 text-gray-700"
-          } px-3 py-1 rounded-md`}
+          } px-3 py-1 rounded-md whitespace-nowrap`}
           onClick={() => onSelectCategory(category)}
         >
           {category}
