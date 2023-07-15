@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 // components
 import SocialMedia from "../components/SocialMedia";
 
@@ -44,10 +44,6 @@ const Home = () => {
 
           {/* Contact Section */}
           <Contact theme={theme} />
-
-          {/* <div className="bg-white">
-            <DarkModeToggler />
-          </div> */}
 
           <Footer theme={theme} />
         </div>

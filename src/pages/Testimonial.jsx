@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import TestimonialFilter from "../components/Testimonial/TestimonialFilter";
 import TestimonialSlider from "../components/Testimonial/TestimonialSlider";
 import { ThemeContext } from "../context/ThemeContext";
-import { categories, testimonialsData } from "../data/index";
+import { categories } from "../data/index";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
+import { TestimonialsContext } from "../context/TestimonialContext";
 
 const Testimonial = () => {
+  const { data } = useContext(TestimonialsContext);
   const { theme } = useContext(ThemeContext);
 
   const location = useLocation();
@@ -14,24 +16,23 @@ const Testimonial = () => {
     .split("/")
     .filter((segment) => segment !== "");
 
-  const [testimonials, setTestimonials] = useState(testimonialsData);
-
+  const [filteredTestimonials, setFilteredTestimonials] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-  };
-
-  const filteredTestimonials =
-    selectedCategory === "All"
-      ? testimonials
-      : testimonials.filter(
-          (testimonial) => testimonial.category === selectedCategory
-        );
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    setFilteredTestimonials(
+      selectedCategory === "All"
+        ? data
+        : data.filter(
+            (testimonial) => testimonial.category === selectedCategory
+          )
+    );
+  }, [selectedCategory, data]);
+
   return (
     <div className="py-10 md:py-12 lg:py-24">
       <div className="rounded-div flex flex-col gap-7 md:gap-14">
@@ -75,7 +76,7 @@ const Testimonial = () => {
           onSelectCategory={setSelectedCategory}
         />
 
-        <TestimonialSlider testimonials={filteredTestimonials} />
+        <TestimonialSlider filteredTestimonials={filteredTestimonials} />
       </div>
     </div>
   );

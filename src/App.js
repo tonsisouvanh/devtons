@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { ProjectsProvider } from "./context/ProjectsContext";
 import Test from "./pages/Test";
 import Testimonial from "./pages/Testimonial";
+import { TestimonialsProvider } from "./context/TestimonialContext";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -18,24 +19,26 @@ function App() {
   }, []);
   return (
     <>
-      <ProjectsProvider>
-        <ThemeProvider>
-          {loading ? (
-            <div className="w-sceen h-screen flex items-center justify-center">
-              <Spinner size={90} />
-            </div>
-          ) : (
-            <BrowserRouter>
-              <Navbar />
-              <Routes>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/test" element={<Test />}></Route>
-                <Route path="/testimonial" element={<Testimonial />}></Route>
-              </Routes>
-            </BrowserRouter>
-          )}
-        </ThemeProvider>
-      </ProjectsProvider>
+      <TestimonialsProvider>
+        <ProjectsProvider>
+          <ThemeProvider>
+            {loading ? (
+              <div className="w-sceen flex h-screen items-center justify-center">
+                <Spinner size={90} />
+              </div>
+            ) : (
+              <BrowserRouter>
+                <Navbar />
+                <Routes>
+                  <Route path="/" element={<Home />}></Route>
+                  <Route path="/test" element={<Test />}></Route>
+                  <Route path="/testimonial" element={<Testimonial />}></Route>
+                </Routes>
+              </BrowserRouter>
+            )}
+          </ThemeProvider>
+        </ProjectsProvider>
+      </TestimonialsProvider>
     </>
   );
 }

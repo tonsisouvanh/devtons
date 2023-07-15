@@ -1,39 +1,55 @@
-import React from "react";
-import { projectData } from "../data";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import React, { useState } from 'react';
 
 const Test = () => {
-  const inputData = projectData.map(({ desc, imgs, github,name,techStack,website }) => ({
-    name: name,
-    description: desc,
-    images: imgs,
-    techStack: techStack,
-    github: github,
-    website: website
-  }));
+  const [inputValue, setInputValue] = useState('');
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [categories, setCategories] = useState([
+    'Web Development',
+    'Graphic Design',
+    'Marketing',
+    // Add more existing categories...
+  ]);
 
-  console.log(inputData);
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
 
-  const handleClick = async () => {
-    try {
-      const projectsCollectionRef = collection(db, "projects");
+  const handleSelectOption = (option) => {
+    setSelectedOption(option);
+  };
 
-      for (const project of inputData) {
-        await addDoc(projectsCollectionRef, project);
-      }
-
-      console.log("Projects added to Firestore successfully");
-    } catch (error) {
-      console.error("Error adding projects to Firestore:", error);
+  const handleCreateCategory = () => {
+    const newCategory = inputValue.trim();
+    if (newCategory && !categories.includes(newCategory)) {
+      setCategories((prevCategories) => [...prevCategories, newCategory]);
+      setSelectedOption(newCategory);
     }
+    setInputValue('');
   };
 
   return (
-    <div className="bg-white w-full h-screen flex items-center justify-center">
-      <button className="bg-blue-500 px-10 py-5 text-white" onClick={handleClick}>
-        INSERT DATA
-      </button>
+    <div>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder="Select or create a category..."
+      />
+      <button onClick={handleCreateCategory}>Create</button>
+
+      <ul>
+        {categories.map((category) => (
+          <li
+            key={category}
+            onClick={() => handleSelectOption(category)}
+            style={{ cursor: 'pointer' }}
+          >
+            {category}
+          </li>
+        ))}
+      </ul>
+
+      <div>Selected Category: {selectedOption}</div>
     </div>
   );
 };
