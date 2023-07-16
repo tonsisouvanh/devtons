@@ -1,6 +1,4 @@
 import React, { useState, useEffect, createContext } from "react";
-// import firebase from "firebase/app";
-// import "firebase/firestore";
 
 import { db } from "../firebase";
 import { collection, getDocs, query } from "firebase/firestore";

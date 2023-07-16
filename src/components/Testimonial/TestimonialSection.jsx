@@ -7,9 +7,6 @@ import { Link } from "react-router-dom";
 import TestimonialModalCreateForm from "./TestimonialModalCreateForm";
 const TestimonialSection = ({ theme }) => {
   const [openModal, setOpenModal] = useState(false);
-  const [name, setName] = useState("");
-  const [company, setCompany] = useState("");
-  const [testimonial, setTestimonial] = useState("");
 
   const getRandomUser = (array, count) => {
     // Create a copy of the original array
@@ -108,7 +105,7 @@ const TestimonialSection = ({ theme }) => {
           className="group relative overflow-hidden whitespace-nowrap border border-accent px-4 py-2 text-sm text-primary transition duration-500 hover:scale-110 hover:bg-accent sm:text-[1.1rem]"
         >
           <span className="transition group-hover:text-black">
-            Write a Testimonial
+            Write a Review
           </span>
         </button>
       </div>

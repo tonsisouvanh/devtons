@@ -6,11 +6,17 @@ import { categories } from "../data/index";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { TestimonialsContext } from "../context/TestimonialContext";
-
+import TestimonialModalCreateForm from "../components/Testimonial/TestimonialModalCreateForm";
+import { motion } from "framer-motion";
+import {
+  fadeFromLeft,
+  fadeFromTopAnimate,
+  scaleAnimate,
+  scaleAnimateReverse,
+} from "../animation";
 const Testimonial = () => {
   const { data } = useContext(TestimonialsContext);
   const { theme } = useContext(ThemeContext);
-
   const location = useLocation();
   const segments = location.pathname
     .split("/")
@@ -18,6 +24,15 @@ const Testimonial = () => {
 
   const [filteredTestimonials, setFilteredTestimonials] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [openModal, setOpenModal] = useState(false);
+
+  useEffect(() => {
+    if (openModal) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "";
+    }
+  }, [openModal]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,9 +49,13 @@ const Testimonial = () => {
   }, [selectedCategory, data]);
 
   return (
-    <div className="py-10 md:py-12 lg:py-24">
+    <motion.div
+      initial={"offscreen"}
+      animate={"onscreen"}
+      className="py-10 md:py-12 lg:py-24"
+    >
       <div className="rounded-div flex flex-col gap-7 md:gap-14">
-        <div className="bg-transparent">
+        <motion.div variants={fadeFromLeft} className="bg-transparent">
           <p className="text-gray-600">
             <Link to="/" className="text-primary hover:underline">
               HOME
@@ -53,9 +72,11 @@ const Testimonial = () => {
               </span>
             ))}
           </p>
-        </div>
-
-        <div className="space-y-5 text-center">
+        </motion.div>
+        <motion.div
+          variants={fadeFromTopAnimate}
+          className="space-y-5 text-center"
+        >
           <h1 className="text-2xl font-[500] text-primary md:text-4xl lg:text-5xl">
             Friendship and collaboration at its finest
           </h1>
@@ -68,17 +89,37 @@ const Testimonial = () => {
           >
             Hear what they have to say
           </h1>
-        </div>
+        </motion.div>
 
-        <TestimonialFilter
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-        />
+        <motion.div variants={fadeFromTopAnimate}>
+          <TestimonialFilter
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onSelectCategory={setSelectedCategory}
+          />
+        </motion.div>
+        <motion.button
+          variants={scaleAnimate}
+          onClick={() => setOpenModal(true)}
+          className="group w-fit overflow-hidden whitespace-nowrap border border-accent px-4 py-2 text-sm text-primary transition duration-500 hover:scale-110 hover:bg-accent sm:text-[1.1rem]"
+        >
+          <span className="transition group-hover:text-black">
+            Write a Review
+          </span>
+        </motion.button>
 
-        <TestimonialSlider filteredTestimonials={filteredTestimonials} />
+        <motion.div variants={scaleAnimate} className="">
+          <TestimonialSlider filteredTestimonials={filteredTestimonials} />
+        </motion.div>
+
+        {openModal && (
+          <TestimonialModalCreateForm
+            openModal={openModal}
+            setOpenModal={setOpenModal}
+          />
+        )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

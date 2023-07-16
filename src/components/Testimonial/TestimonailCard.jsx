@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
-
+import replaceavatar from '../../assets/images/replacedavatar.png'
 const TestimonialCard = ({ testimonial }) => {
   const { theme } = useContext(ThemeContext);
   const { name, message, category } = testimonial;
-
+  if (!testimonial || !testimonial.createdAt) {
+    return <h1>Loading</h1>;
+  }
   return (
     <div
       className={`${
@@ -14,7 +16,7 @@ const TestimonialCard = ({ testimonial }) => {
       <div className="flex items-center gap-4">
         <img
           className="h-10 w-10 rounded-md"
-          src={testimonial.imageUrl}
+          src={testimonial.imageUrl || replaceavatar}
           alt=""
         />
         <div className=" text-sm md:text-lg">
@@ -26,7 +28,8 @@ const TestimonialCard = ({ testimonial }) => {
         {message}
       </p>
       <div className=" items-center text-sm text-gray-500 md:text-lg">
-        {Date().toString().slice(0, 15)}
+        {testimonial?.createdAt &&
+          new Date(testimonial.createdAt.seconds * 1000).toLocaleString()}
       </div>
     </div>
   );

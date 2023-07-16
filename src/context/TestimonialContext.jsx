@@ -28,10 +28,13 @@ export const TestimonialsProvider = ({ children }) => {
         isLoading: true,
       }));
 
+      const createdAt = new Date();
+
       const testimonialRef = await addDoc(collection(db, "testimonials"), {
         name,
         message,
         category,
+        createdAt,
       });
 
       if (imageFile) {
@@ -57,7 +60,14 @@ export const TestimonialsProvider = ({ children }) => {
           ...prevState,
           data: [
             ...prevState.data,
-            { id: testimonialRef.id, name, message, category, imageUrl },
+            {
+              id: testimonialRef.id,
+              name,
+              message,
+              category,
+              imageUrl,
+              createdAt,
+            },
           ],
           isLoading: false, // Set the status to indicate that data addition is completed
         }));
@@ -72,8 +82,9 @@ export const TestimonialsProvider = ({ children }) => {
               name,
               message,
               category,
-              imageUrl:
-                "https://images.squarespace-cdn.com/content/v1/5446f93de4b0a3452dfaf5b0/1626904421257-T6I5V5IQ4GI2SJ8EU82M/Above+Avalon+Neil+Cybart",
+              // imageUrl:
+              //   "https://images.squarespace-cdn.com/content/v1/5446f93de4b0a3452dfaf5b0/1626904421257-T6I5V5IQ4GI2SJ8EU82M/Above+Avalon+Neil+Cybart",
+              createdAt,
             },
           ],
           isLoading: false, // Set the status to indicate that data addition is completed
@@ -101,6 +112,8 @@ export const TestimonialsProvider = ({ children }) => {
         id: doc.id,
         ...doc.data(),
       }));
+
+      console.log("heyyyyyyyyyyyy", testimonialsData);
 
       setTestimonials({
         data: testimonialsData,

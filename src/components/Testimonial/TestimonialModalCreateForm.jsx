@@ -9,12 +9,6 @@ import { ToastContainer, toast } from "react-toastify";
 import { IoMdCloudUpload } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
-const override = {
-  display: "block",
-  margin: "0 auto",
-  borderColor: "red",
-};
-
 const TestimonialModalCreateForm = ({ openModal, setOpenModal }) => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -28,7 +22,7 @@ const TestimonialModalCreateForm = ({ openModal, setOpenModal }) => {
 
   const handleSubmit = () => {
     if (!name || !cate || !message) {
-      toast.warn("Cannot be empty!");
+      toast.warn("All fields can not be empty!");
     } else {
       addTestimonial({ name, message, category: cate, imageFile });
       if (isError) toast.error("Adding fail!");
@@ -181,10 +175,7 @@ const TestimonialModalCreateForm = ({ openModal, setOpenModal }) => {
                 </div>
                 <div className="mt-8 w-full border-t border-gray-200 p-2 pt-8 text-center">
                   <p className="text-sky-500">tonsisouvanh_1996@hotmail.com</p>
-                  <p className="my-5 leading-normal">
-                    CS Studnet
-                    {/* <br>Saint Cloud, MN 56301 */}
-                  </p>
+                  <p className="my-5 leading-normal">CS Studnet</p>
                   <span className="inline-flex">
                     <p className="text-gray-500">
                       <svg

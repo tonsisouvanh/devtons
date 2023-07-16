@@ -89,28 +89,64 @@ const fadeIn = {
     },
   },
 };
+
+const fadeFromLeft = {
+  offscreen: {
+    opacity: 0,
+    x: -100,
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 2,
+    },
+  },
+};
+
+const fadeFromTopAnimate = {
+  offscreen: {
+    opacity: 0,
+    y: -100,
+  },
+  onscreen: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.5,
+    },
+  },
+};
+
+
+const scaleAnimateReverse = {
+  offscreen: {
+    opacity: 0,
+    scale: 2,
+  },
+  onscreen: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.1,
+      duration: 2,
+    },
+  },
+};
 export {
   HeaderAnimate,
   DescAnimate,
   projectsDivAnimate,
   scaleAnimate,
   fadeBottomAnimate,
-  fadeIn
+  fadeIn,
+  fadeFromLeft,
+  fadeFromTopAnimate,
+  scaleAnimateReverse
 };
 
-// const fadeFromLeft = {
-//   offscreen: {
-//     opacity: 0,
-//     x: -100,
-//   },
-//   onscreen: {
-//     x: 0,
-//     opacity: 1,
-//     transition: {
-//       duration: 2,
-//     },
-//   },
-// };
+
 // const fadeFromRight = {
 //   offscreen: {
 //     opacity: 0,
@@ -186,19 +222,7 @@ export {
 //   },
 // };
 
-// const fadeFromTopAnimate = {
-//   offscreen: {
-//     opacity: 0,
-//     y: -100,
-//   },
-//   onscreen: {
-//     opacity: 1,
-//     y: 0,
-//     transition: {
-//       duration: 1.5,
-//     },
-//   },
-// };
+
 // const fadeFromBottomAnimate = {
 //   offscreen: {
 //     opacity: 0,

@@ -44,7 +44,7 @@ const navItems = [
   {
     activeClass: "text-accent font-bold",
     to: "testimonial",
-    text: "Testimonial",
+    text: "Reviews",
     spy: true,
     smooth: true,
     offset: -100,
