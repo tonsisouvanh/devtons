@@ -8,12 +8,7 @@ import { Link } from "react-router-dom";
 import { TestimonialsContext } from "../context/TestimonialContext";
 import TestimonialModalCreateForm from "../components/Testimonial/TestimonialModalCreateForm";
 import { motion } from "framer-motion";
-import {
-  fadeFromLeft,
-  fadeFromTopAnimate,
-  scaleAnimate,
-  scaleAnimateReverse,
-} from "../animation";
+import { fadeFromLeft, fadeFromTopAnimate, scaleAnimate } from "../animation";
 const Testimonial = () => {
   const { data } = useContext(TestimonialsContext);
   const { theme } = useContext(ThemeContext);

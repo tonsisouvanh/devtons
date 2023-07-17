@@ -8,7 +8,8 @@ import { TestimonialsContext } from "../../context/TestimonialContext";
 import { ToastContainer, toast } from "react-toastify";
 import { IoMdCloudUpload } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-
+import Spinner from "../Spinner";
+import { MoonLoader } from "react-spinners";
 const TestimonialModalCreateForm = ({ openModal, setOpenModal }) => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -28,7 +29,6 @@ const TestimonialModalCreateForm = ({ openModal, setOpenModal }) => {
       if (isError) toast.error("Adding fail!");
       else {
         toast.success("Added!");
-        console.log(name, message, cate, imageFile);
         setOpenModal(false);
         navigate("/testimonial");
         setName("");
@@ -145,7 +145,18 @@ const TestimonialModalCreateForm = ({ openModal, setOpenModal }) => {
                       className="h-32 w-full resize-none rounded border border-gray-300 bg-gray-100 bg-opacity-80 py-1 px-3 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-500"
                     ></textarea>
                   </div>
-                  <div className="w-fit cursor-pointer rounded-md border-2 border-sky-200 px-2 py-1">
+                  <div className="relative w-fit cursor-pointer overflow-hidden rounded-md border-2 border-sky-200 px-3 py-3 transition hover:opacity-75">
+                    {fileUploading && (
+                      <Spinner
+                        loaderStyle={
+                          "absolute top-0 left-0 bg-gray-900/70 w-full h-full flex justify-center items-center"
+                        }
+                        loaderColor={"#64ffda"}
+                        Loader={MoonLoader}
+                        size={30}
+                      />
+                    )}
+
                     <div className="flex items-center gap-1">
                       <label className="cursor-pointer" htmlFor="file">
                         Upload Image

@@ -11,14 +11,6 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER,
   appId: process.env.REACT_APP_APP_ID,
 };
-// const firebaseConfig = {
-//   apiKey: "AIzaSyB5WDynoN7tKuE2_GgS9wUamne7VHz1usM",
-//   authDomain: "devtons-120196.firebaseapp.com",
-//   projectId: "devtons-120196",
-//   storageBucket: "devtons-120196.appspot.com",
-//   messagingSenderId: "1066444278999",
-//   appId: "1:1066444278999:web:668b61f9c281dc02e7b492",
-// };
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);

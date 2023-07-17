@@ -22,7 +22,6 @@ export const TestimonialsProvider = ({ children }) => {
   const addTestimonial = async (inputData) => {
     const { name, message, category, imageFile } = inputData;
     try {
-      // Update the status to indicate that data is being added
       setTestimonials((prevState) => ({
         ...prevState,
         isLoading: true,
@@ -35,6 +34,7 @@ export const TestimonialsProvider = ({ children }) => {
         message,
         category,
         createdAt,
+        isShow: false
       });
 
       if (imageFile) {
@@ -82,8 +82,7 @@ export const TestimonialsProvider = ({ children }) => {
               name,
               message,
               category,
-              // imageUrl:
-              //   "https://images.squarespace-cdn.com/content/v1/5446f93de4b0a3452dfaf5b0/1626904421257-T6I5V5IQ4GI2SJ8EU82M/Above+Avalon+Neil+Cybart",
+              imageUrl: "",
               createdAt,
             },
           ],
@@ -103,6 +102,10 @@ export const TestimonialsProvider = ({ children }) => {
   };
 
   const getTestimonials = async () => {
+    setTestimonials((prevState) => ({
+      ...prevState,
+      isLoading: true,
+    }));
     try {
       const listingRef = collection(db, "testimonials");
       const q = query(listingRef);
@@ -112,9 +115,6 @@ export const TestimonialsProvider = ({ children }) => {
         id: doc.id,
         ...doc.data(),
       }));
-
-      console.log("heyyyyyyyyyyyy", testimonialsData);
-
       setTestimonials({
         data: testimonialsData,
         isLoading: false,

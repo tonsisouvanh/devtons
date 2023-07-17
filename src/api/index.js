@@ -1,3 +1,0 @@
-import { projectData } from "../data";
-
-

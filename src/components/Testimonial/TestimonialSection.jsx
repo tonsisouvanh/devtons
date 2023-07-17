@@ -1,34 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import { HeaderAnimate, fadeIn } from "../../animation";
-import { testimonialsData } from "../../data";
 import { Link } from "react-router-dom";
 import TestimonialModalCreateForm from "./TestimonialModalCreateForm";
+import { TestimonialsContext } from "../../context/TestimonialContext";
+import Spinner from "../Spinner";
+import { MoonLoader } from "react-spinners";
+import { replacedAvatar } from "../../assets/images";
+
 const TestimonialSection = ({ theme }) => {
   const [openModal, setOpenModal] = useState(false);
+  const { data, isLoading } = useContext(TestimonialsContext);
 
-  const getRandomUser = (array, count) => {
-    // Create a copy of the original array
-    const copyArray = [...array];
-
-    // Generate unique random indices
-    const randomIndices = [];
-    while (randomIndices.length < count) {
-      const randomIndex = Math.floor(Math.random() * copyArray.length);
-      if (!randomIndices.includes(randomIndex)) {
-        randomIndices.push(randomIndex);
-      }
-    }
-
-    // Retrieve the elements using the random indices
-    const randomElements = randomIndices.map((index) => copyArray[index]);
-
-    return randomElements;
-  };
-
-  // Sample data for outstanding user testimonials
-  const testimonials = getRandomUser(testimonialsData, 3);
+  const testimonials = data;
+  const testimonialsToShow = testimonials.filter((item) => item.isShow);
 
   useEffect(() => {
     if (openModal) {
@@ -58,38 +44,47 @@ const TestimonialSection = ({ theme }) => {
         <div className="h-[6px] flex-grow rounded-full bg-gradient-to-r from-[#945DD6] via-[#13ADC7] to-[#F46737]"></div>
       </motion.div>
 
-      <motion.div variants={fadeIn} className="mt-8">
-        <h3 className="mb-4 text-lg font-[200] md:text-2xl">
-          Read testimonials from my satisfied people that I have worked with
-        </h3>
-        <div className="mt-20 grid grid-cols-1 gap-20 md:grid-cols-2 md:gap-y-20 md:gap-x-10 lg:grid-cols-3 lg:gap-10">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className={`relative flex flex-col items-center ${
-                theme === "dark" ? "bg-gray-800" : "bg-gray-300"
-              } flex h-fit w-full flex-col gap-3 rounded-md p-6 shadow-md`}
-            >
-              <img
-                className="mx-auto -mt-[4rem] h-[6rem] w-[6rem] rounded-full"
-                src="https://images.squarespace-cdn.com/content/v1/5446f93de4b0a3452dfaf5b0/1626904421257-T6I5V5IQ4GI2SJ8EU82M/Above+Avalon+Neil+Cybart"
-                alt=""
-              />
-
-              <p className="mb-4 text-center text-sm font-[200] text-primary md:text-lg">
-                {testimonial.content}
-              </p>
-
-              <div className="text-center text-sm md:text-lg">
-                <h3 className="text-lg font-bold text-primary md:text-xl">
-                  {testimonial.name}
-                </h3>
-                <p className="text-primary ">{testimonial.company}</p>
-              </div>
-            </div>
-          ))}
+      {isLoading ? (
+        <div className="flex justify-center">
+          <Spinner Loader={MoonLoader} size={40} />
         </div>
-      </motion.div>
+      ) : (
+        <motion.div variants={fadeIn} className="mt-8">
+          <h3 className="mb-4 text-lg font-[200] md:text-2xl">
+            Read testimonials from my satisfied people that I have worked with
+          </h3>
+          <div className="mt-20 grid gap-20 md:grid-cols-2 md:gap-y-20 md:gap-x-10 lg:grid-cols-3 lg:gap-10">
+            {data.length <= 0 && (
+              <p className="text-primary">No any reviews created</p>
+            )}
+            {testimonialsToShow.map((testimonial, index) => (
+              <div
+                key={index}
+                className={`relative flex flex-col items-center ${
+                  theme === "dark" ? "bg-gray-800" : "bg-gray-300"
+                } flex h-fit w-full flex-col gap-3 rounded-md p-6 shadow-md`}
+              >
+                <img
+                  className="mx-auto -mt-[4rem] h-[6rem] w-[6rem] rounded-full"
+                  src={testimonial.imageUrl || replacedAvatar}
+                  alt=""
+                />
+
+                <p className="mb-4 text-center text-sm font-[200] text-primary md:text-lg">
+                  {testimonial.message}
+                </p>
+
+                <div className="text-center text-sm md:text-lg">
+                  <h3 className="text-lg font-bold text-primary md:text-xl">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-primary ">{testimonial.category}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      )}
 
       <div className="flex w-full items-center justify-center gap-7">
         <Link

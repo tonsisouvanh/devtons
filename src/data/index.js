@@ -16,7 +16,7 @@ import {
   figma,
   reactjs,
   photoshop,
-} from "../assets/images/idnex";
+} from "../assets/images";
 
 const projectData = [
   {

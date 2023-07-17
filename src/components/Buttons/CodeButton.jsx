@@ -1,12 +1,16 @@
 import React from "react";
 import "./CodeButton.css";
 const CodeButton = () => {
-  const handleDownload = () => {
-    
-  };
+  // const handleDownload = () => {};
   return (
-    <button onClick={handleDownload} className="cssbuttons-io">
-      <span className="md:text-[1.1rem] uppercase">
+    <a
+      href="https://drive.google.com/file/d/1XLiG4Em6QAGleu3nFNm7G9Qw75w7op6v/view?usp=sharing"
+      // onClick={handleDownload}
+      target="_blank"
+      rel="noreferrer"
+      className="cssbuttons-io"
+    >
+      <span className="uppercase md:text-[1.1rem]">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path fill="none" d="M0 0h24v24H0z"></path>
           <path
@@ -16,7 +20,7 @@ const CodeButton = () => {
         </svg>
         Check Out CV
       </span>
-    </button>
+    </a>
   );
 };
 

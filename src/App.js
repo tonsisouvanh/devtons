@@ -8,6 +8,7 @@ import { ProjectsProvider } from "./context/ProjectsContext";
 import Test from "./pages/Test";
 import Testimonial from "./pages/Testimonial";
 import { TestimonialsProvider } from "./context/TestimonialContext";
+import { HashLoader } from "react-spinners";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -24,7 +25,7 @@ function App() {
           <ThemeProvider>
             {loading ? (
               <div className="w-sceen flex h-screen items-center justify-center">
-                <Spinner size={90} />
+                <Spinner Loader={HashLoader} size={90} />
               </div>
             ) : (
               <BrowserRouter>

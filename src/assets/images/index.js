@@ -22,5 +22,6 @@ import githubWhite from './github-white.png'
 import reactjs from './reactjs.png'
 import photoshop from './photoshop.png'
 import imgnotfound from './imgnotfound.jpg'
+import replacedAvatar from './replacedavatar.png'
 
-export { imgnotfound,cSharp, cpp, js, html, css, sass, tailwindcss, sql, mysql, mongodb, nodejs, vscode, vsstudio, figma,tiktok,facebook,github,twitter,githubWhite,reactjs,photoshop }
+export { replacedAvatar,imgnotfound,cSharp, cpp, js, html, css, sass, tailwindcss, sql, mysql, mongodb, nodejs, vscode, vsstudio, figma,tiktok,facebook,github,twitter,githubWhite,reactjs,photoshop }
