@@ -16,6 +16,8 @@ import {
   figma,
   reactjs,
   photoshop,
+  nextjs,
+  typescript,
 } from "../assets/images";
 
 const projectData = [
@@ -106,24 +108,24 @@ const techtools = [
   {
     id: 1,
     title: "Languages",
-    toolsicons: [cpp, cSharp, js],
+    toolsicons: [cpp, cSharp, js, typescript],
     desc: "These are programming language that I have learned in school and selt taught",
   },
   {
     id: 2,
     title: "Front-end",
-    toolsicons: [html, css, js, sass, tailwindcss, reactjs],
+    toolsicons: [html, css, js, sass, tailwindcss, reactjs, nextjs],
     desc: "These are my favourite language and framework that helps me created a lot of web app with full responsive ui. And I choose tailwind css as main one for css framewrok, it helps me get a job done faster.",
   },
   {
     id: 3,
-    title: "Back-end",
+    title: "Back-end/Database",
     toolsicons: [sql, mysql, mongodb, nodejs],
     desc: "I usually use these 3 database to store data. On server-side I use nodejs framework to help provide data for front-end",
   },
   {
     id: 4,
-    title: "Dev-Tools",
+    title: "Development Tools",
     toolsicons: [vsstudio, vscode, figma, photoshop],
     desc: "These are my favourite tools that I have been using for development.",
   },
