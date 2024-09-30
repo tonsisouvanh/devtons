@@ -25,7 +25,7 @@ const About = ({ theme }) => {
 
             {/* <!-- The right line --> */}
           </div>
-          <h2
+          {/* <h2
             className={`mt-5 mb-2 w-full bg-clip-text text-center  text-2xl font-bold text-transparent sm:text-4xl ${
               theme === "light"
                 ? "bg-gradient-to-r from-black to-gray-900"
@@ -34,16 +34,16 @@ const About = ({ theme }) => {
           >
             Meet the React-Express Ninja: A Website Developer with a Year of
             Experience!
-          </h2>
+          </h2> */}
           <FaQuoteLeft className="text-3xl text-primary" />
           <p className="relative text-left leading-8 text-primary sm:mt-3 sm:text-xl sm:leading-10">
             I'm a Frontend Web Developer who specializes in building the
-            front-end of websites and web applications, ensuring the success of
-            the overall project. Check out some of my work in the Projects
-            section. I'm passionate about using frameworks like ReactJS for
-            front-end web development, and seeing things rendered exactly as I
-            envisioned is very satisfying for me. Please feel free to connect
-            with me or follow me on my social media.
+            front-end of websites and web applications, also be able to build up
+            backend to serve as RESTFul API. Check out some of my work in the
+            Projects section. I'm passionate about using frameworks like ReactJS
+            and NextJS, and seeing things rendered exactly as I want it to be is
+            very satisfying for me. Please feel free to connect with me or
+            follow me on my social media.
           </p>
 
           <div className="flex w-full justify-end">

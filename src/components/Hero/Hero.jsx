@@ -41,10 +41,8 @@ const Hero = ({ theme }) => {
             </h1>
             <p className="animate-[fadeLeft_1.1s_linear] text-center text-[1rem] leading-8 text-primary md:text-[1.4rem]">
               I have more than a year of experience as a website developer, and
-              I mainly use React for building web applications and Express for
-              the backend. As a website developer, I use React for web app
-              development and Express for the backend, and I have over a year of
-              experience.
+              I mainly use ReactJS/NextJS for building web applications and
+              Nodejs(Express) for the backend.
             </p>
             {/* <h1 className="text-primary text-xl md:text-[1.1rem] leading-8 animate-[fadeLeft_1.1s_linear]">
               React JS Developer Creating Engaging Web Experiences
